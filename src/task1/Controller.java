@@ -1,19 +1,17 @@
 package task1;
 
-import com.sun.webkit.Timer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class Controller {
-
     @FXML
     private Button addButton, getButton;
     @FXML
     private TextField currencyField, valueField, amountField;
     @FXML
-    private Label availableMoney, exceptionLabel;
+    private Label valueGet, amountGet, availableMoney, exceptionLabel;
 
     public void switchButtons() {
         addButton.setDisable(!addButton.isDisable());
@@ -47,7 +45,7 @@ public class Controller {
         }
     }
 
-    void printMoney(String s) {
+    private void printMoney(String s) {
         availableMoney.setText(s);
     }
 }
