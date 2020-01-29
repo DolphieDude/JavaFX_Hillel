@@ -11,9 +11,11 @@ public class Controller {
     @FXML
     private TextField currencyField, valueField, amountField;
     @FXML
-    private Label valueGet, amountGet, availableMoney, exceptionLabel;
+    private Label valueGet, amountGet, availableMoney, exceptionLabel, amountLabel;
 
     public void switchButtons() {
+        if(!amountLabel.getText().equals("Amount")) amountLabel.setText("Amount");
+        else amountLabel.setText("Money");
         addButton.setDisable(!addButton.isDisable());
         getButton.setDisable(!getButton.isDisable());
         valueField.setDisable(!valueField.isDisable());
@@ -25,7 +27,9 @@ public class Controller {
         boolean checkLimits = true;
         try {
             if(currencyField.getText().length() != 3) throw new Exception();
-            currencyField.setText(currencyField.getText().toUpperCase());
+            for (int i = 0; i < 2; i++) if(currencyField.getText().charAt(i) < 65 || currencyField.getText().charAt(i) > 90)
+                throw new Exception();
+            currencyField.setText(currencyField.getText());
             value = Math.abs(Integer.parseInt(valueField.getText()));
             for (int i = 0; i <= 3; i++) {
                 powTen = (int) Math.pow(10, i);
@@ -43,6 +47,10 @@ public class Controller {
             e.printStackTrace();
             exceptionLabel.setVisible(true);
         }
+    }
+
+    public void getBanknotes() {
+        //TODO: CONTINUE HERE
     }
 
     private void printMoney(String s) {
