@@ -18,7 +18,7 @@ class Banknote {
     }
 
     @Override
-    public boolean equals(Object obj) { //redundant for now
+    public boolean equals(Object obj) {
         if(obj instanceof Banknote) {
             if (obj == this) return true;
             Banknote banknote = (Banknote) obj;
@@ -37,6 +37,6 @@ class Banknote {
             j--;
         }
         result += value * 1_000_000;
-        return result; //Why not long... But still unique for symbols range
+        return result; //Why not long... But still unique for this symbols range
     }
 }
